@@ -1,0 +1,8 @@
+{  
+   "basePackage":"co.com.bancolombia.microservice.resolveEnigmaApi",
+   "configPackage":"co.com.bancolombia.microservice.resolveEnigmaApi.config",
+   "apiPackage":"co.com.bancolombia. microservice.resolveEnigmaApi.api",
+   "modelPackage":"co.com.bancolombia. microservice.resolveEnigmaApi.model",
+   "groupId":"co.com.bancolombia.service.resolveEnigmaApi",
+   "artifactId":"resolve-enigma-api"
+}

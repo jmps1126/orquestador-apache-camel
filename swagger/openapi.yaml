@@ -1,0 +1,112 @@
+openapi: 3.0.0
+info:
+  description: API for get one step for resolve the enigma how put a giraffe into a refrigerator
+  title: Get One Enigma Step API
+  version: 0.1.9
+  contact:
+    email: juan.manuel.pulgarin@accenture.com
+  license:
+    name: Apache 2.0
+    url: 'https://www.apache.org/licenses/LICENSE-2.0'
+  
+ 
+servers:
+  - url: 'localhost:{port}/v2'
+    description: Server Local
+    variables:
+      port:
+        enum: ['443','8080']
+        default: '8080'
+      protocol:
+        enum: ['http','https']
+        default: 'https'
+paths:
+  /getStep:
+    post:
+      tags: ['get-one-enigma-step-api-controller']
+      summary: Get one enigma step API
+      description: ""
+      operationId: getStep
+      requestBody:
+        description: Get one enigma step API
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JsonApiBodyRequest'
+      responses:
+        '200':    # status code
+          description: search results matching criteria
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/JsonApiBodyResponseSucess'
+        '424':
+          description: bad input parameter
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/JsonApiBodyResponseError'
+
+components:
+  schemas:
+    Header:
+      type: object
+      required: [id, type]
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+    GetEngimaRequest:
+      type: object
+      required: [header, enigma]
+      properties:
+        header:
+          $ref: '#/components/schemas/Header'
+        enigma:
+          type: string
+    JsonApiBodyRequest:
+      type: object
+      required: [data]
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/GetEngimaRequest'
+    JsonApiBodyResponseSucess:
+      type: object
+      required: [data]
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Header'
+        answer:
+          type: string
+    JsonApiBodyResponseError:
+      type: object
+      required: [errors]
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Error'
+    Error:
+      type: object
+      required: [code, detail, id, source, status, title]
+      properties:
+        code:
+          type: string
+        detail:
+          type: string
+        id:
+          type: string
+        source:
+          type: string
+        status:
+          type: string
+        title:
+          type: string
+            
+        
