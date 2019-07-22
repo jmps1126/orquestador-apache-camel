@@ -44,5 +44,7 @@ dependencies {
     testCompile 'junit:junit:4.12','org.powermock:powermock-core:1.6.1','org.powermock:powermock-module-junit4:1.6.1','org.powermock:powermock-api-mockito:1.6.1'
     compile group: 'org.apache.camel', version: '2.21.0', name: 'camel-core'
     compile group: 'org.apache.camel', version: '2.21.0', name: 'camel-http4'
+    compile group: 'org.apache.camel', version: '2.21.0', name: 'camel-freemarker'
+    compile group: 'org.apache.camel', version: '2.21.0', name: 'camel-jackson'
 
 }
